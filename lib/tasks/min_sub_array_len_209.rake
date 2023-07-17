@@ -1,11 +1,27 @@
-task :min_array => :environment do
-  nums = [1,2,3,4,4]
+task :min_sub_array_len => :environment do
+  nums = [1,2,3,4,1]
   target = 15
   puts min_sub_array_len(nums, target)
   
 end
 
 def min_sub_array_len(nums, target)
+  sum, len, j, subLen = 0, Float::INFINITY, 0,  0
+  for i in 0..nums.size - 1
+    sum += nums[i]
+    while sum >= target
+      subLen = (i - j) + 1
+      len = subLen < len ? subLen : len
+      sum -= nums[j]
+      j += 1
+    end
+  end
+
+  return len == Float::INFINITY ? 0 : len
+end
+
+
+def min_sub_array_len_easy(nums, target)
   result, start, len, sum = [], 0, 0, 0
 
   for index in 0..nums.size - 1
