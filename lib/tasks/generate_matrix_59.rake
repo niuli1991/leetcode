@@ -41,7 +41,9 @@ def func(n)
     step -= 2
   end
   
+  #如果是奇数，则填充最后一个元素
   result[n/2][n/2] = n**2 if n % 2
-  puts result.to_s
+  
+  return 
   
 end
