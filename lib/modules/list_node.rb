@@ -18,6 +18,19 @@ module ListNode
       @head = nil
     end
 
+    def init_linked_list(nums)
+      pointer = Node.new(nil)
+      @head = pointer
+      nums.each do |item|
+        tail = Node.new(item)
+        pointer.next = tail
+        pointer = tail
+      end
+
+      @head = @head.next
+      return @head
+    end
+
     def get(index)
       node = @head
       pointer = 0

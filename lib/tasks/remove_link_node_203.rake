@@ -4,19 +4,9 @@ include ListNode
 task :remove_link_node => :environment do
   nums = [3,3,3,3,3,3]
   val = 3
-  head = init_linked_list nums
+  list = List.new()
+  head = list.init_linked_list nums
   head = remove_equal_value_node head, val
-end
-
-def init_linked_list(nums)
-  head = Node.new(nil)
-  pointer = head
-  nums.each do |item|
-    tail = Node.new(item)
-    head.next = tail
-    head = tail
-  end
-  return pointer.next
 end
 
 def remove_equal_value_node(head, val)
