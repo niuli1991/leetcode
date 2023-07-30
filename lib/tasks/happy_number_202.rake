@@ -1,6 +1,6 @@
 task :happy_number => :environment do
 
-  puts is_happy(1111111)
+  puts is_happy(2)
 end
 
 
@@ -9,10 +9,10 @@ def is_happy(n)
   sum = n
   
   while !Set.new([sum]).subset?(set)
-    n = n.to_s
     set << sum
     sum = 0
-    n.split('').each do |num|
+    #n转为字符串，遍历每个字符
+    n.to_s.split('').each do |num|
       sum += num.to_i**2
     end
     n = sum.to_s
