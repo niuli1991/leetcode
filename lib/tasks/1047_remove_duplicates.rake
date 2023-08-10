@@ -11,10 +11,8 @@ def remove_duplicates(s)
       stack.push chr
     else
       head = stack.pop 
-      if head != chr
-        #重新进栈
-        stack.push head, chr
-      end
+      #重新进栈
+      stack.push head, chr if head != chr
     end
   end
 
