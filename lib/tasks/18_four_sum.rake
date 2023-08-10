@@ -5,10 +5,12 @@ task :four_sum => :environment do
 end
 
 def four_sum(nums, target)
+  #结果集
   result = []
   nums = nums.sort!
 
   for i in 0..nums.size - 1
+    #第一个元素大于target则直接返回结果集
     return result if i > 0 && nums[i] > target && nums[i] >= 0
     #对a进行去重
     next if i > 0 && nums[i] == nums[i - 1]
