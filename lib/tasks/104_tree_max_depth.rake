@@ -18,17 +18,14 @@ end
 def max_depth(root)
   max = 0
   depth = 0
-  max = find_depth(root, depth, max)
+  max = get_max_depth(root, depth, max)
 end
 
-def find_depth(node, depth, max)
-  if node == nil
-    max = depth > max ? depth : max
-    return max
-  end
+def get_max_depth(node, depth, max)
+  depth > max ? depth : max if node == nil
   
   depth += 1
-  max = find_depth(node.left, depth, max)
-  max = find_depth(node.right, depth, max)
+  max = get_max_depth(node.left, depth, max)
+  max = get_max_depth(node.right, depth, max)
   return max
 end
