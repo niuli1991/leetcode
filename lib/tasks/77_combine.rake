@@ -31,8 +31,10 @@ def backtracking(result, path, n, j, k)
   end
 
   for i in j..(n-(k - path.size)) + 1
+    #处理节点
     path << i
     backtracking(result, path, n, i + 1, k)
+    #回溯，撤销处理过的节点
     path.pop
   end
 end
